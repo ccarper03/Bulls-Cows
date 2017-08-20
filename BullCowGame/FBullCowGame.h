@@ -32,7 +32,7 @@ public:
 	EGuessStatus CheckGuessValidity(FString) const; // TODO Make a more rich return value
 
 	void Reset(); // TODO make a more rich return value
-	FBullCowCount SubmitGuess(FString); // struct
+	FBullCowCount SubmitValidGuess(FString); // struct
 
 private:
 	// See constructor for initialization
