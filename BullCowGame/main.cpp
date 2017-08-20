@@ -45,10 +45,12 @@ void PrintIntro()
 // Plays game loop
 void PlayGame() 
 {
+	BCGame.Reset();
 	int32 myMaxTries = BCGame.GetMaxTries();
 
-	// loop for the nummber of turns asking for guesses
-	for (int32 i = 0; i < myMaxTries; i++)//TODO change from FOR to WHILE 
+	// loop asking for guesses while the game 
+	// is NOT won and there are still tries remaining
+	while (!BCGame.IsGameWon && BCGame.GetCurrentTry() <= BCGame.GetMaxTries)
 	{
 		// Get guess and display it back to user
 		FText guess = GetValidGuess(); // TODO make loop check for valid guesses
