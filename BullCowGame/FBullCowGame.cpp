@@ -1,6 +1,5 @@
 #include "FBullCowGame.h"
 #include <map>
-
 #define TMap std::map 
 
 using FString = std::string;
