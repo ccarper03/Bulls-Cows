@@ -3,7 +3,7 @@
 #define TMap std::map 
 
 using FString = std::string;
-using int32 = int;
+using int32 = int; // default constructor
 
 FBullCowGame::FBullCowGame(){Reset();}
 int32 FBullCowGame::GetMaxTries() const {return myMaxTries;}
@@ -11,12 +11,15 @@ int32 FBullCowGame::GetCurrentTry() const {return myCurrentTry;}
 int32 FBullCowGame::GetHiddenWordLength() const {return myHiddenWord.length();}
 bool FBullCowGame::IsGameWon() const {return bGameIsWon;}
 
+int32 FBullCowGame::GetMaxTries() const
+{
+	TMap<int32, int32> WordLengthToMaxTries{ { 3,4 },{ 4,7 },{ 5,10 },{ 6,16 },{ 7,20 } };
+	return WordLengthToMaxTries[myHiddenWord.length()];
+}
+
 void FBullCowGame::Reset()
 {
-	constexpr int32 MAX_TRIES = 8;
-	const FString HIDDEN_WORD = "planet";
-
-	myMaxTries = MAX_TRIES;
+	const FString HIDDEN_WORD = "plane";// this MUST be an isogram
 	myHiddenWord = HIDDEN_WORD;
 	myCurrentTry = 1;
 	bGameIsWon = false;

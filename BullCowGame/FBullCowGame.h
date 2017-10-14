@@ -1,3 +1,6 @@
+/* The game logic (no view code or direct user interaction)
+The game is a simple guess the word game based on Mastermind
+*/
 #pragma once
 #include <string>
 
@@ -36,8 +39,7 @@ public:
 
 private:
 	// See constructor for initialization
-	int myCurrentTry;
-	int myMaxTries; 
+	int32 myCurrentTry;
 	FString myHiddenWord;
 	bool bGameIsWon; 
 
